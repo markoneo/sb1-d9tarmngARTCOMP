@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Enhanced float animation */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(3deg); }
+  75% { transform: translateY(5px) rotate(-3deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* Pulse glow animation */
+@keyframes pulseGlow {
+  0% { filter: drop-shadow(0 0 0px rgba(234, 179, 8, 0)); }
+  50% { filter: drop-shadow(0 0 8px rgba(234, 179, 8, 0.5)); }
+  100% { filter: drop-shadow(0 0 0px rgba(234, 179, 8, 0)); }
+}
+
+/* Circuit animation */
+@keyframes circuit {
+  0% { stroke-dashoffset: 100; opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0.5; }
+}
+
+/* Continuous scroll animation */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Apply animations */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.animate-circuit {
+  stroke-dasharray: 100;
+  animation: circuit 3s linear infinite;
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+/* Icon hover effects */
+.icon-hover {
+  transition: all 0.3s ease;
+}
+
+.icon-hover:hover {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 0 8px rgba(234, 179, 8, 0.5));
+}
+
+/* Card hover animation */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo animation */
+.logo-container {
+  position: relative;
+  display: inline-block;
+}
+
+.logo-container::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #eab308, transparent) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: pulseGlow 2s ease-in-out infinite;
+}
